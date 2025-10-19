@@ -1,45 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Kasa Rani Portfolio</title>
+    <title>Jony - Creative Director Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2a1a2e 0%, #3d2645 50%, #2a1a2e 100%);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .accent-gold {
+            color: #d4a574;
+        }
+
+        .border-accent {
+            border-color: #d4a574;
+        }
+
+        .bg-accent {
+            background-color: #d4a574;
+        }
+
+        .hover-accent:hover {
+            color: #d4a574;
+            border-color: #d4a574;
+        }
+
+        .skill-bar {
+            background: linear-gradient(90deg, #d4a574 0%, #d4a574 var(--width), transparent var(--width));
+            height: 2px;
+            margin-top: 8px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: rgba(212, 165, 116, 0.1);
+            border-color: #d4a574;
+            transform: translateY(-5px);
+        }
+
+        .work-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .work-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .work-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .work-item:hover .work-overlay {
+            transform: translateY(0);
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4a574;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: transparent;
+            border: 2px solid #d4a574;
+            color: #d4a574;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            background: #d4a574;
+            color: #2a1a2e;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(212, 165, 116, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #d4a574;
+            border-color: #d4a574;
+            color: #2a1a2e;
+        }
+    </style>
 </head>
-
 <body>
-    <nav class="p-5 flex items-center justify-around shadow-md bg-transparent fixed w-full">
-        <h1 class="text-3xl font-bold text-white">Logo</h1>
-        <ul class=" flex gap-10 text-white">
-            <li><a href=""></a>Home</li>
-            <li><a href=""></a>Services</li>
-            <li><a href=""></a>About</li>
-            <li><a href=""></a>Portfolio</li>
-            <li><a href=""></a>Contact</li>
-        </ul>
-    </nav>
-
-    <header class="bg-slate-900 h-screen flex items-center justify-around">
-        <div class="w-1/2">
-            <h2 class="text-white">
-                WELCOME TO MY WORLD
-            </h2>
-            <h1 class="text-white">I'm Kasa Rani <br>
-            A Web Designer</h1>
-            <P class="text-white">I’m a passionate web developer based in Kasa Rani, Tripura, with a strong foundation in front-end and back-end technologies. I specialize in building responsive, user-friendly websites using HTML, CSS, JavaScript, and frameworks like React and Node.js. I enjoy turning complex problems into simple, elegant solutions and am always eager to learn new tools and technologies. With a keen eye for design and a focus on performance, I aim to deliver web experiences that are both functional and visually appealing. Whether working solo or in a team, I bring dedication, creativity, and problem-solving skills to every project.</P>
-            <div>
-                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/"><i class="fa-brands fa-square-instagram"></i></a>
-                <a href="https://x.com/"><i class="fa-brands fa-square-twitter"></i></a>
-                <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-opacity-95 bg-gray-900 z-50 border-b border-accent border-opacity-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-2xl font-bold accent-gold">Kasa Rani.</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-sm hover-accent">Home</a>
+                    <a href="#works" class="nav-link text-sm hover-accent">Works</a>
+                    <a href="#services" class="nav-link text-sm hover-accent">Services</a>
+                    <a href="#pages" class="nav-link text-sm hover-accent">Pages</a>
+                    <a href="#about" class="nav-link text-sm hover-accent">About</a>
+                    <a href="#blog" class="nav-link text-sm hover-accent">Blog</a>
+                    <a href="#contact" class="nav-link text-sm hover-accent">Contact</a>
+                </div>
+                <button class="cta-button text-sm">Let's Talk</button>
             </div>
         </div>
-        <div class=" bg-slate-800 p-5 rounded-md"> 
-            <img class="rounded-md" src="./images (3).jpg" alt="">
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+                        Hi There, I Am Kasa Rani 
+                    </h1>
+                    <p class="text-2xl accent-gold mb-8">Creative Director</p>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        I'm a web developer and graphics designer, crafting visually engaging websites and designs. Passionate about creativity, technology, and delivering user-friendly digital experiences that leave a lasting impression.
+                    </p>
+                    <button class="cta-button">View Works</button>
+                </div>
+                <div class="flex justify-center">
+                    <img src="/Rani1.png" alt="Kasa Rani- Creative Director" class="rounded-lg shadow-1xl">
+                </div>
+            </div>
         </div>
-    </header>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-black bg-opacity-30">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">I'm a web developer and graphic designer, crafting visually engaging websites and designs. Passionate about creativity, technology, and delivering user-friendly digital experiences that leave a lasting impression.</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        I also enjoy crafting unique brand experiences. Experienced with all the stages of the design process.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        From conception, wireframing and prototyping, all the way to visual design and usability testing. Recently I've been working on motion design and animation to improve the experiences.
+                    </p>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">UI/UX</span>
+                            <span class="accent-gold">85%</span>
+                        </div>
+                        <div class="skill-bar" style="--width: 85%"></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">Web Design and graphic design</span>
+                            <span class="accent-gold">90%</span>
+                        </div>
+                        <div class="skill-bar" style="--width: 90%"></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">E-commerce design</span>
+                            <span class="accent-gold">75%</span>
+                        </div>
+                        <div class="skill-bar" style="--width: 75%"></div>
+                    </div>
+                    <button class="cta-button mt-8">Download CV</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16">My Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="service-card p-8 text-center">
+                    <div class="text-5xl mb-6 flex justify-center">
+                        <svg class="w-16 h-16 accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Web & Graphic Design</h3>
+                    <p class="text-gray-400 text-sm">Get whatever you want with our web and graphic design services. We create beautiful and functional designs.</p>
+                </div>
+                <div class="service-card p-8 text-center">
+                    <div class="text-5xl mb-6 flex justify-center">
+                        <svg class="w-16 h-16 accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4m0 6V4m0 0L8 4m6 16l-4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Web Design</h3>
+                    <p class="text-gray-400 text-sm">Get whatever you want with our web Degign services. We create beautiful and functional websites.</p>
+                </div>
+                <div class="service-card p-8 text-center">
+                    <div class="text-5xl mb-6 flex justify-center">
+                        <svg class="w-16 h-16 accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Graphic Designer</h3>
+                    <p class="text-gray-400 text-sm">Get whatever you want with our graphic services. We create beautiful and functional online stores.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works" class="py-20 px-4 sm:px-6 lg:px-8 bg-black bg-opacity-30">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16">My Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="work-item h-64 md:h-80">
+                    <img src="/salisbury1.png" alt="graphic design Project">
+                    <div class="work-overlay">
+                        <h3 class="text-xl font-bold">Web Design</h3>
+                        <p class="text-sm accent-gold">Colorful App Project</p>
+                    </div>
+                </div>
+                <div class="work-item h-64 md:h-80">
+                    <img src="/bokap design.png" alt="graphic design">
+                    <div class="work-overlay">
+                        <h3 class="text-xl font-bold">graphic design</h3>
+                        <p class="text-sm accent-gold">Colorful App Project</p>
+                    </div>
+                </div>
+                <div class="work-item h-64 md:h-80">
+                    <img src="/Brochures 2.png" alt="graphic design">
+                    <div class="work-overlay">
+                        <h3 class="text-xl font-bold">graphic design</h3>
+                        <p class="text-sm accent-gold">Colorful App Project</p>
+                    </div>
+                </div>
+                <div class="work-item h-64 md:h-80">
+                    <img src="/FLAYER.png" alt="Mobile App Project">
+                    <div class="work-overlay">
+                        <h3 class="text-xl font-bold">web design</h3>
+                        <p class="text-sm accent-gold">web design Project</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <button class="cta-button">More Works</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16">What Clients say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="testimonial-card">
+                    <p class="text-gray-300 mb-6 italic">"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour or randomised words which look even slightly believable. If you are going to use a passage."</p>
+                    <div class="flex items-center space-x-4">
+                        <img src="/placeholder.svg?height=50&width=50" alt="Client" class="w-12 h-12 rounded-full">
+                        <div>
+                            <p class="font-bold">Kathryn Williamson</p>
+                            <p class="text-sm text-gray-400">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="text-gray-300 mb-6 italic">"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour or randomised words which look even slightly believable. If you are going to use a passage."</p>
+                    <div class="flex items-center space-x-4">
+                        <img src="/placeholder.svg?height=50&width=50" alt="Client" class="w-12 h-12 rounded-full">
+                        <div>
+                            <p class="font-bold">Kathryn Williamson</p>
+                            <p class="text-sm text-gray-400">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-black bg-opacity-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Do you have any Project?</h2>
+            <p class="text-2xl accent-gold mb-12">Let's Talk</p>
+            <p class="text-gray-400 mb-12 leading-relaxed">
+                Get in touch with me now. I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <button class="cta-button">Behance</button>
+                <button class="cta-button">Freelancer</button>
+                <button class="cta-button">Fiverr</button>
+                <button class="cta-button">LinkedIn</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-accent border-opacity-20 py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">Copyright © 2025 Kasa Rani. All rights reserved. This template is made with ❤️ by Kasa Rani</p>
+                <div class="flex space-x-4 mt-6 md:mt-0">
+                    <a href="#" class="social-icon">B</a>
+                    <a href="#" class="social-icon">F</a>
+                    <a href="#" class="social-icon">M</a>
+                    <a href="#" class="social-icon">in</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(42, 26, 46, 0.98)';
+                navbar.style.boxShadow = '0 2px 10px rgba(212, 165, 116, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(31, 31, 31, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Button click handlers
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                console.log('Button clicked:', this.textContent);
+            });
+        });
+    </script>
 </body>
 </html>
